@@ -3,32 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-/*
-                             Kullanılacak Fonksiyonlar ve Tanımları 
-                           ---------------------------------------
-                initializeGame --> Tablonun her değerini 0 ile dolduracak
-                placeMines --> rand() yardımı ile 10 rastgele mayın yerleştirecek ve -1 yapacak.
-        calculateNumbers --> mayınlar yerleştirildikten sonra etrafındaki kutular sayı ile doldurulacak
-            printTable --> Mayınları ve sayıları belirlenmiş tabloyu kapalı şekilde basacak
-            selectedCell -->          Seçilen hücre üzerinde işlemler
-            placeFlag--> Bayrak yerleştirecek
-    gameOverTable --> mayına basıldığında tüm mayınları ve o zamana kadar açılmış hücreleri gösterecek
-                                        Nasıl Oynanır ?
-                              ------------------------------
-                Oyun başladığında sırasıyla x ve y koordinatlarını bir boşluk bırakarak girin
-                                            Örn: 5 6
-                        Bu koordinatlar girildikten sonra sizden 0 veya 1 değeri isteyecek
-                                    1 --> Bayrak koymak için 
-                                    0 --> Hücreyi açmak için
-                                           İYİ OYUNLAR 
-                                       Made By Orcun AKSOY
-
-
-
-*/
-
-
-
 #define SIZE 10 // Mayın Tarlasınının Boyutu 10x10
 #define MINES 10 // Mayın Sayısını Temsil Eder 
 
