@@ -201,7 +201,10 @@ int main()
 
     while(1)
     {
+        printf("\n");
         printTable();
+        
+        
         int x,y;
         int choice;
         printf("Enter column and row : ");
@@ -222,25 +225,100 @@ int main()
 
         if (minessweeper[x][y] == -1) 
         {
+            char control;
+            int validInput=1,control2=0;
             gameOverTable();
-            printf("Game over! You hit a mine.\n");
-            break;
+            printf("Game over! You hit a mine.\n\n");
+            while(validInput)
+            {
+                printf("Please enter y to play again, n to exit\n");
+                scanf(" %c",&control);
+                if(control=='y')
+                {
+                    control2=1;
+                    break;
+                }
+                    
+                else if(control=='n')
+                {
+                    validInput = 0;
+                    break;
+                }
+                else
+                {
+                    printf("Invalid input! Try Again!\n");
+                }
+            }
+            if(validInput==0)
+            {
+                break;
+            }
+            if(control2==1)
+            {
+                remainingCells= (SIZE*SIZE)-MINES;
+                initializeGame();
+                placeMines();
+                calculateNumbers();
+                startTime = time(NULL);
+                printf("\n\n\n");
+                continue;
+                
+            }
+
         }
+            
+
+
 
         selectedCell(x,y);
 
         if(remainingCells == 0)
         {
+            char control;
+            int validInput=1,control2=0;
             printf("Congratulations! You won the game!\n");
-            break;
+            time_t endTime = time(NULL);
+            double seconds = difftime(endTime, startTime);
+            printf("You completed the game in %.2f seconds. \n\n", seconds);
+            while(validInput)
+            {
+                printf("Please enter y to play again, n to exit\n");
+                scanf(" %c",&control);
+                if(control=='y')
+                {
+                    control2=1;
+                    break;
+                }
+                    
+                else if(control=='n')
+                {
+                    validInput = 0;
+                    break;
+                }
+                else
+                {
+                    printf("Invalid input! Try Again!\n");
+                }
+            }
+            if(validInput==0)
+            {
+                break;
+            }
+            if(control2==1)
+            {
+                remainingCells= (SIZE*SIZE)-MINES;
+                initializeGame();
+                placeMines();
+                calculateNumbers();
+                startTime = time(NULL);
+                printf("\n\n\n");
+                continue;
+                
+            }
         } 
 
     }
 
-        
-    time_t endTime = time(NULL);
-    double seconds = difftime(endTime, startTime);
-    printf("You completed the game in %.2f seconds. \n", seconds);
 
 
 }
